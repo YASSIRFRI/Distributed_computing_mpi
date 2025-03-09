@@ -1,0 +1,21 @@
+=== Explanation of Differences ===
+1. Critical Section (#pragma omp critical):
+   - Creates a mutually exclusive region around the code block
+   - Higher overhead due to lock acquisition and release
+   - More versatile: can protect multiple statements
+   - Generally slower for simple operations\n
+2. Atomic Operations (#pragma omp atomic):
+   - Hardware-level support for atomic memory operations
+   - Lower overhead than full critical sections
+   - Limited to simple operations (read, write, update, capture)
+   - More efficient for single operations like increments\n
+    
+3. Reduction Method (local counters with #pragma omp reduction):
+   - Each thread maintains a private copy of the counter
+   - No contention during the parallel region
+   - Values are combined only at the end of the parallel region
+   - Often the fastest approach for accumulation operations\n
+The performance differences are primarily due to:
+- Lock contention: Many threads competing for the same lock
+- Hardware support: Atomic operations use specialized CPU instructions
+- Synchronization overhead: Critical sections have higher entry/exit costs
