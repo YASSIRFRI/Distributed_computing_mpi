@@ -1,0 +1,7 @@
+=== Performance Summary ===
+1. Default distribution: Load imbalance causes idle threads
+2. Splitting heavy tasks: Better utilization of threads
+3. Balanced distribution: Optimal thread utilization
+The key lesson is to distribute workload evenly across
+available threads to minimize waiting time and maximize
+parallel efficiency.
