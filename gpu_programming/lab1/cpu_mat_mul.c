@@ -4,14 +4,12 @@
 
 #define N 2048
 
-// Function to initialize the matrix with random values
 void initialize_matrix(float *matrix, int size) {
     for (int i = 0; i < size; i++) {
         matrix[i] = (float)(rand() % 100);  // Values between 0 and 99
     }
 }
 
-// Function for matrix multiplication on CPU
 void matrix_multiply(float *A, float *B, float *C, int n) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
